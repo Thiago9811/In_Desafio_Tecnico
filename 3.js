@@ -6,6 +6,10 @@ async function iniciar() {
     let resp = "s";
     while(resp === "s"){
         let num = Number(await rl.question('entre com o valor a ser calculado: '));
+        while(num < 0 && num !== Number){
+            console.log("Entre com um número válido");
+            num = Number(await rl.question('Entre com o valor a ser calculado: '));
+        }
         factorial(num);
         resp = String(await rl.question('Deseja calcular outro número? Digite [S] ou [N]: '));
         resp = resp.toLocaleLowerCase();
@@ -13,6 +17,7 @@ async function iniciar() {
             console.log("Responda com [S] ou [N]");
             resp = String(await rl.question('Deseja calcular outro número? Digite [S] ou [N]: ')).toLocaleLowerCase();
         }
+        
     }
 
     rl.close();
@@ -20,10 +25,16 @@ async function iniciar() {
 
 function factorial(num){
     let res = 1;
-    for(let i = num; i > 0; i--){
-        res = res * i;     
+    if (num === 0){
+        console.log(`${num}! = ${1}`);
     }
-    console.log(`${num}! = ${res}`);
+    
+    else{
+        for(let i = num; i > 0; i--){
+            res = res * i;     
+        }    
+        console.log(`${num}! = ${res}`);
+    }
 
 }
 iniciar();
