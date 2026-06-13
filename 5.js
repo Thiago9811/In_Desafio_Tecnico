@@ -75,23 +75,31 @@ author: "Arthur C. Clarke",
 ]
 
 
-const resultado = {};
-for(const item of booksByCategory){
-    resultado[item.category] = item.books.length;
+function countBooksInCategory(){
+    const resultado = {};
+    for(const item of booksByCategory){
+        resultado[item.category] = item.books.length;
+    }
+    console.log(resultado);
 }
-console.log(resultado);
 
+countBooksInCategory();
 
 /*
-let vetor = [];
-for(const category of booksByCategory){
-    for(const livro of category.books){
-        //console.log(livro)
-        if (vetor.findIndex( x => x == livro.author ) === -1){
-            vetor.push(livro.author);
-            //console.log(vetor.findIndex( x => x == livro.autor))
+function authors(){
+    let vetor = [];
+    for(const category of booksByCategory){
+        for(const livro of category.books){
+            //console.log(livro)
+            if (vetor.findIndex( x => x == livro.author ) === -1){
+                vetor.push(livro.author);
+                //console.log(vetor.findIndex( x => x == livro.autor))
+            }
         }
     }
+    console.log(vetor);
+
 }
-console.log(vetor);
+
+authors();
 */
